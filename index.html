@@ -23,7 +23,31 @@
             // Remplacez cette console.log par l'implémentation réelle
           })
           .catch(error => console.error(error));
-          
+
+          const express = require('express');
+const fs = require('fs');
+
+const app = express();
+const port = 3000;
+
+app.get('/saveip/:ip', (req, res) => {
+  const userIP = req.params.ip;
+  fs.writeFile('ip.txt', userIP, (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Erreur lors de l\'enregistrement de l\'adresse IP.');
+    } else {
+      console.log('Adresse IP enregistrée avec succès : ' + userIP);
+      res.send('Adresse IP enregistrée avec succès : ' + userIP);
+    }
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Serveur en cours d'exécution sur le port ${port}`);
+});
+
+
       })
 
     ;
