@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MON SITE LOL</title>
+</head>
+<body>
+  <h1>Vous allez acceder a mon site lol  XD BAKA</h1>
+  <p>Clique pour pouvoir voire mon jolie site lol baka XD</p>
+  <button id="acceptButton">Accepter, nan jure</button>
+
+  <script>
+    document.getElementById('acceptButton').addEventListener('click', function() {
+      // Demander confirmation à l'utilisateur
+     
+        // Si l'utilisateur donne son consentement
+        // Obtenir l'adresse IP via un service tiers (dans cet exemple, nous utilisons ipify.org)
+        fetch('https://api.ipify.org?format=json')
+          .then(response => response.json())
+          .then(data => {
+            var userIP = data.ip;
+            console.log("Adresse IP de l'utilisateur : " + userIP);
+            // Code pour envoyer l'adresse IP au bot Discord
+            // Remplacez cette console.log par l'implémentation réelle
+          })
+          .catch(error => console.error(error));
+          
+      })
+
+    ;
+  </script>
+</body>
+</html>
